@@ -1,0 +1,66 @@
+aid: dropbox-sign
+name: Dropbox Sign
+description: >-
+  Dropbox Sign (formerly HelloSign) is an eSignature platform that lets
+  developers and businesses embed legally binding electronic signature
+  workflows into their applications and websites. The product supports
+  embedded signing and requesting, reusable templates, custom signer fields,
+  branded signing flows, audit trails, and tamper-proof document delivery.
+  The Dropbox Sign API is documented with an official OpenAPI specification
+  and authenticated via HTTP Basic Auth with an API key or OAuth 2.0 Bearer
+  tokens.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - eSignature
+  - Electronic Signature
+  - Document Signing
+  - Workflow Automation
+  - Documents
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: dropbox-sign:rest-api
+    name: Dropbox Sign REST API
+    description: >-
+      Versioned REST API (v3) for sending signature requests, managing
+      templates, teams, accounts, embedded signing/requesting flows, OAuth
+      apps, and reports. Authentication is HTTP Basic Auth with an API key or
+      OAuth 2.0 Bearer tokens; the API ships with an officially maintained
+      OpenAPI specification used to generate SDKs and reference docs.
+    humanURL: https://developers.hellosign.com/api/api-reference-welcome
+    baseURL: https://api.hellosign.com/v3
+    tags:
+      - eSignature
+      - Electronic Signature
+      - Document Signing
+      - Documents
+    properties:
+      - type: Documentation
+        url: https://developers.hellosign.com/api/api-reference-welcome
+      - type: OpenAPI
+        url: https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml
+      - type: GitHub OpenAPI Repo
+        url: https://github.com/hellosign/hellosign-openapi
+      - type: Getting Started
+        url: https://developers.hellosign.com/api/reference
+
+common:
+  - type: Website
+    url: https://sign.dropbox.com
+  - type: Documentation
+    url: https://developers.hellosign.com
+  - type: API Documentation
+    url: https://developers.hellosign.com/api/api-reference-welcome
+  - type: Pricing
+    url: https://sign.dropbox.com/pricing
+  - type: Sign Up
+    url: https://sign.dropbox.com/signup
+  - type: GitHub Organization
+    url: https://github.com/hellosign
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
