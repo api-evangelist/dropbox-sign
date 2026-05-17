@@ -45,7 +45,7 @@ apis:
         url: https://github.com/hellosign/hellosign-openapi/blob/main/openapi.yaml
       - type: GitHub OpenAPI Repo
         url: https://github.com/hellosign/hellosign-openapi
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.hellosign.com/api/reference
 
 common:
@@ -57,9 +57,9 @@ common:
     url: https://developers.hellosign.com/api/api-reference-welcome
   - type: Pricing
     url: https://sign.dropbox.com/pricing
-  - type: Sign Up
+  - type: SignUp
     url: https://sign.dropbox.com/signup
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/hellosign
 maintainers:
   - FN: Kin Lane
