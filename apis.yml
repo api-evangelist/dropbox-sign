@@ -49,6 +49,8 @@ apis:
         url: https://developers.hellosign.com/api/reference
 
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/dropboxsign
   - type: Website
     url: https://sign.dropbox.com
   - type: Documentation
