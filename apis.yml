@@ -63,6 +63,8 @@ common:
     url: https://sign.dropbox.com/signup
   - type: GitHubOrganization
     url: https://github.com/hellosign
+  - type: LLMsTxt
+    url: https://developers.hellosign.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
