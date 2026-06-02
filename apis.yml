@@ -20,7 +20,7 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - aid: dropbox-sign:rest-api
@@ -47,6 +47,36 @@ apis:
         url: https://github.com/hellosign/hellosign-openapi
       - type: GettingStarted
         url: https://developers.hellosign.com/api/reference
+  - aid: dropbox-sign:events-api
+    name: Dropbox Sign Events and Callbacks API
+    description: >-
+      Outbound event / callback surface for Dropbox Sign. The platform POSTs
+      JSON event payloads (wrapped in a `multipart/form-data` `json` field)
+      to a subscriber-configured URL whenever signature requests, templates,
+      and account-level activity change state. Two callback scopes are
+      supported: account callbacks (configured on the authenticated account)
+      and app callbacks (configured per API app and routed by `client_id`).
+      Authenticity is verified via the `event.event_hash` field, computed as
+      HMAC-SHA256 of `event_time + event_type` keyed by the receiving
+      account's API key.
+    humanURL: https://developers.hellosign.com/docs/events/overview/
+    tags:
+      - eSignature
+      - Webhooks
+      - Events
+      - Callbacks
+      - Event-Driven
+    properties:
+      - type: Documentation
+        url: https://developers.hellosign.com/docs/events/overview/
+      - type: Walkthrough
+        url: https://developers.hellosign.com/docs/events/walkthrough/
+      - type: AccountCallbacks
+        url: https://developers.hellosign.com/api/reference/operation/accountUpdateEventCallback/
+      - type: AppCallbacks
+        url: https://developers.hellosign.com/api/reference/operation/apiAppCreateEventCallback/
+      - type: AsyncAPI
+        url: https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/asyncapi/dropbox-sign-events-asyncapi.yml
 
 common:
   - type: LinkedIn
