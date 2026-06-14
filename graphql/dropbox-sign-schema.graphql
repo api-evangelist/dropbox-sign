@@ -1,0 +1,835 @@
+"""
+Dropbox Sign (HelloSign) GraphQL Schema
+Derived from the Dropbox Sign REST API v3
+https://developers.hellosign.com/api/reference/
+"""
+
+# ─── Enumerations ───────────────────────────────────────────────────────────
+
+enum SignatureRequestStatus {
+  AWAITING_SIGNATURE
+  SIGNED
+  DECLINED
+  EXPIRED
+  CANCELLED
+  ERROR
+  DRAFT
+}
+
+enum SignatureRequestType {
+  REQUEST
+  EMBEDDED
+  TEMPLATE
+  BULK
+}
+
+enum SignatureStatus {
+  AWAITING_SIGNATURE
+  SIGNED
+  DECLINED
+  ERROR
+}
+
+enum SignatureDate {
+  CREATED_AT
+  UPDATED_AT
+  EXPIRES_AT
+  SIGNED_AT
+}
+
+enum DocumentType {
+  PDF
+  WORD_DOC
+  DOCX
+  IMAGE
+}
+
+enum FormFieldType {
+  SIGNATURE
+  DATE_SIGNED
+  INITIALS
+  TEXT
+  CHECKBOX
+  RADIO
+  DROPDOWN
+  HYPERLINK
+  ATTACHMENT
+}
+
+enum TemplateRole {
+  SIGNER
+  CC
+  APPROVER
+}
+
+enum UnclaimedDraftType {
+  SEND_DOCUMENT
+  REQUEST_SIGNATURE
+}
+
+enum UserType {
+  PRIMARY
+  MEMBER
+  INVITEE
+}
+
+enum AccountPlan {
+  FREE
+  ESSENTIALS
+  DROPBOX_PROFESSIONAL
+  STANDARD
+  PREMIUM
+}
+
+enum EventType {
+  SIGNATURE_REQUEST_SENT
+  SIGNATURE_REQUEST_VIEWED
+  SIGNATURE_REQUEST_SIGNED
+  SIGNATURE_REQUEST_DECLINED
+  SIGNATURE_REQUEST_REMINDED
+  SIGNATURE_REQUEST_ALL_SIGNED
+  SIGNATURE_REQUEST_EMAIL_BOUNCE
+  SIGNATURE_REQUEST_INVALID
+  SIGNATURE_REQUEST_CANCELED
+  TEMPLATE_CREATED
+  TEMPLATE_DELETED
+  ACCOUNT_CREATED
+  ACCOUNT_CONFIRMED
+  ACCOUNT_EMAIL_VERIFIED
+  FILE_ERROR
+  ERROR_UNKNOWN
+}
+
+enum BulkSendJobStatus {
+  QUEUED
+  PROCESSING
+  COMPLETE
+  FAILED
+  CANCELLED
+}
+
+enum SignerOrder {
+  SEQUENTIAL
+  PARALLEL
+}
+
+# ─── Core Types ─────────────────────────────────────────────────────────────
+
+type SignatureRequest {
+  signatureRequestId: ID!
+  title: String
+  subject: String
+  message: String
+  status: SignatureRequestStatus!
+  type: SignatureRequestType
+  details: SignatureRequestDetails
+  signers: [Signer!]
+  ccEmailAddresses: [CC!]
+  signingUrl: String
+  signingRedirectUrl: String
+  filesUrl: String
+  metadata: Metadata
+  createdAt: Int
+  expiresAt: Int
+  isComplete: Boolean!
+  isDeclined: Boolean!
+  hasError: Boolean!
+  finalCopyUri: String
+  originalTitle: String
+  testMode: Boolean
+  requesterEmailAddress: String
+}
+
+type SignatureRequestDetails {
+  signatureRequestId: ID!
+  title: String
+  subject: String
+  message: String
+  status: SignatureRequestStatus!
+  signatures: [Signature!]
+  ccEmailAddresses: [String!]
+  signingUrl: String
+  signingRedirectUrl: String
+  filesUrl: String
+  metadata: Metadata
+  createdAt: Int
+  expiresAt: Int
+  isComplete: Boolean!
+  isDeclined: Boolean!
+  hasError: Boolean!
+  requesterEmailAddress: String
+  templateIds: [String!]
+  customFields: [FormFieldValue!]
+}
+
+type Signer {
+  signerId: ID
+  emailAddress: String!
+  name: String
+  order: Int
+  pin: String
+  smsPhoneNumber: String
+}
+
+type SignerDetails {
+  signerId: ID
+  emailAddress: String!
+  name: String
+  order: Int
+  hasPin: Boolean
+  hasSmsAuth: Boolean
+  hasSmsDelivery: Boolean
+  reassignedBy: String
+  reassignmentReason: String
+  lastReminderEmailSentAt: Int
+  signedAt: Int
+}
+
+type SignerRole {
+  name: String!
+  order: Int
+}
+
+type SignerAccessCode {
+  signerId: ID!
+  hasAccessCode: Boolean!
+}
+
+type Signature {
+  signatureId: ID!
+  signerEmailAddress: String
+  signerName: String
+  signerRole: String
+  order: Int
+  statusCode: SignatureStatus!
+  declineReason: String
+  signedAt: Int
+  lastViewedAt: Int
+  lastRemindedAt: Int
+  hasPin: Boolean
+  hasSmsAuth: Boolean
+  hasSmsDelivery: Boolean
+  smsPhoneNumber: String
+  reassignedBy: String
+  reassignmentReason: String
+  error: String
+}
+
+type SignatureDetails {
+  signatureId: ID!
+  signerEmailAddress: String
+  signerName: String
+  signerRole: String
+  order: Int
+  statusCode: SignatureStatus!
+  declineReason: String
+  signedAt: Int
+  lastViewedAt: Int
+  lastRemindedAt: Int
+  hasPin: Boolean
+  hasSmsAuth: Boolean
+  hasSmsDelivery: Boolean
+  reassignedBy: String
+  reassignmentReason: String
+  error: String
+}
+
+type Document {
+  index: Int!
+  name: String
+  filename: String
+  type: DocumentType
+}
+
+type DocumentDetails {
+  index: Int!
+  name: String!
+  filename: String
+  type: DocumentType
+  url: String
+  signatureRequestId: ID
+  templateId: ID
+}
+
+type TemplateField {
+  apiId: String
+  name: String
+  type: FormFieldType
+  signer: Int
+  x: Int
+  y: Int
+  width: Int
+  height: Int
+  required: Boolean
+  group: String
+  page: Int
+}
+
+type FieldGroup {
+  groupId: String!
+  groupLabel: String
+  fieldType: FormFieldType
+  rule: String
+}
+
+type CC {
+  emailAddress: String!
+  name: String
+  role: String
+}
+
+type CCDetails {
+  emailAddress: String!
+  name: String
+  role: String
+}
+
+type Metadata {
+  key: String
+  value: String
+}
+
+type FormField {
+  apiId: String
+  name: String
+  type: FormFieldType!
+  signer: Int
+  x: Int!
+  y: Int!
+  width: Int
+  height: Int
+  required: Boolean
+  group: String
+  page: Int
+  placeholder: String
+  validationType: String
+}
+
+type FormFieldGroup {
+  groupId: String!
+  groupLabel: String
+  fieldType: FormFieldType
+  rule: String
+  fields: [FormField!]
+}
+
+type FormFieldValue {
+  apiId: String!
+  name: String
+  type: FormFieldType
+  value: String
+  required: Boolean
+  editor: String
+}
+
+# ─── Template Types ──────────────────────────────────────────────────────────
+
+type Template {
+  templateId: ID!
+  title: String
+  message: String
+  updatedAt: Int
+  isCreator: Boolean
+  canEdit: Boolean
+  isLocked: Boolean
+  metadata: Metadata
+  signerRoles: [SignerRole!]
+  ccRoles: [TemplateRole!]
+  documents: [TemplateDocument!]
+  customFields: [TemplateField!]
+  accounts: [User!]
+}
+
+type TemplateDetails {
+  templateId: ID!
+  title: String
+  message: String
+  updatedAt: Int
+  isCreator: Boolean
+  canEdit: Boolean
+  isLocked: Boolean
+  metadata: Metadata
+  signerRoles: [SignerRole!]
+  ccRoles: [String!]
+  documents: [TemplateDocument!]
+  customFields: [TemplateField!]
+  formFields: [FormField!]
+  accounts: [User!]
+  namedFormFields: [FormField!]
+}
+
+type TemplateDocument {
+  index: Int!
+  name: String!
+  filename: String
+  type: DocumentType
+}
+
+type TemplateForm {
+  formFields: [FormField!]
+  fieldGroups: [FormFieldGroup!]
+}
+
+# ─── Unclaimed Draft Types ───────────────────────────────────────────────────
+
+type UnclaimedDraft {
+  signatureRequestId: ID!
+  claimUrl: String!
+  signingRedirectUrl: String
+  requestingRedirectUrl: String
+  expiresAt: Int
+  testMode: Boolean
+}
+
+type UnclaimedDraftDetails {
+  signatureRequestId: ID!
+  claimUrl: String!
+  signingRedirectUrl: String
+  requestingRedirectUrl: String
+  expiresAt: Int
+  testMode: Boolean
+  type: UnclaimedDraftType
+}
+
+# ─── Embedded Types ──────────────────────────────────────────────────────────
+
+type EmbeddedURL {
+  signUrl: String!
+  expiresAt: Int!
+}
+
+type EmbeddedDetails {
+  signUrl: String!
+  expiresAt: Int!
+  requestToken: String
+  embeddedId: String
+}
+
+# ─── Team Types ──────────────────────────────────────────────────────────────
+
+type Team {
+  name: String!
+  accounts: [User!]
+  invitedAccounts: [User!]
+}
+
+type TeamDetails {
+  name: String!
+  accounts: [User!]
+  invitedAccounts: [User!]
+  roleCode: String
+}
+
+type TeamInvite {
+  emailAddress: String!
+  role: String
+  isExpired: Boolean
+  invitedAt: Int
+}
+
+# ─── User and Account Types ──────────────────────────────────────────────────
+
+type User {
+  accountId: ID!
+  emailAddress: String!
+  isLocked: Boolean
+  isPaidHs: Boolean
+  isPaidHf: Boolean
+  quotas: AccountDetails
+  callbackUrl: String
+  roleCode: String
+}
+
+type UserDetails {
+  accountId: ID!
+  emailAddress: String!
+  isLocked: Boolean
+  isPaidHs: Boolean
+  isPaidHf: Boolean
+  quotas: AccountDetails
+  callbackUrl: String
+  roleCode: String
+  locale: String
+}
+
+type Account {
+  accountId: ID!
+  emailAddress: String!
+  isLocked: Boolean
+  isPaidHs: Boolean
+  isPaidHf: Boolean
+  quotas: AccountDetails
+  callbackUrl: String
+  roleCode: String
+}
+
+type AccountDetails {
+  apiSignatureRequestsLeft: Int
+  documentsLeft: Int
+  templatesLeft: Int
+  smsVerificationsLeft: Int
+}
+
+# ─── API App Types ───────────────────────────────────────────────────────────
+
+type App {
+  clientId: ID!
+  name: String!
+  domain: String
+  callbackUrl: String
+  isApproved: Boolean
+  options: AppDetails
+  oauthData: OauthToken
+  whiteLabelingOptions: String
+  createdAt: Int
+}
+
+type AppDetails {
+  defaultSigningRedirectUrl: String
+  defaultRequestingRedirectUrl: String
+  testMode: Boolean
+}
+
+type APIKey {
+  apiKeyId: ID!
+  name: String
+  apiKey: String
+  createdAt: Int
+  lastUsedAt: Int
+  expiresAt: Int
+}
+
+type OauthToken {
+  accessToken: String!
+  tokenType: String
+  refreshToken: String
+  expiresIn: Int
+  expiresAt: Int
+  scope: String
+}
+
+# ─── Webhook and Event Types ─────────────────────────────────────────────────
+
+type Webhook {
+  webhookId: ID!
+  callbackUrl: String!
+  enabled: Boolean!
+  accountId: ID
+  clientId: ID
+  eventTypes: [EventType!]
+  createdAt: Int
+}
+
+type WebhookEvent {
+  accountId: ID
+  clientId: ID
+  event: Event!
+  signatureRequest: SignatureRequest
+  template: Template
+}
+
+type CallbackDetails {
+  callbackUrl: String!
+  accountId: ID
+  clientId: ID
+  eventHash: String
+  eventTime: String
+}
+
+type Event {
+  eventTime: String!
+  eventType: EventType!
+  eventHash: String!
+  eventMetadata: EventDetails
+}
+
+type EventDetails {
+  relatedSignatureId: String
+  reportedForAccountId: String
+  reportedForAppId: String
+  signatureRequestGuid: String
+  eventMessage: String
+  reviewUrl: String
+}
+
+# ─── Bulk Send Types ─────────────────────────────────────────────────────────
+
+type BulkSendJob {
+  bulkSendJobId: ID!
+  total: Int
+  isCreator: Boolean
+  createdAt: Int
+}
+
+type BulkSendJobDetails {
+  bulkSendJobId: ID!
+  total: Int
+  isCreator: Boolean
+  createdAt: Int
+  signatureRequests: [SignatureRequest!]
+  status: BulkSendJobStatus
+}
+
+# ─── List Response Wrappers ──────────────────────────────────────────────────
+
+type ListInfo {
+  numPages: Int!
+  currentPage: Int!
+  pageSize: Int!
+  totalCount: Int!
+}
+
+type SignatureRequestList {
+  signatureRequests: [SignatureRequest!]!
+  listInfo: ListInfo!
+}
+
+type TemplateList {
+  templates: [Template!]!
+  listInfo: ListInfo!
+}
+
+type TeamList {
+  teams: [Team!]!
+  listInfo: ListInfo!
+}
+
+type BulkSendJobList {
+  bulkSendJobs: [BulkSendJob!]!
+  listInfo: ListInfo!
+}
+
+type AppList {
+  apiApps: [App!]!
+  listInfo: ListInfo!
+}
+
+# ─── Root Query Type ─────────────────────────────────────────────────────────
+
+type Query {
+  "Get details of a specific signature request"
+  signatureRequest(signatureRequestId: ID!): SignatureRequest
+
+  "List signature requests for the account"
+  signatureRequests(
+    accountId: ID
+    page: Int
+    pageSize: Int
+    query: String
+  ): SignatureRequestList
+
+  "Get details of a specific template"
+  template(templateId: ID!): Template
+
+  "List templates for the account"
+  templates(
+    accountId: ID
+    page: Int
+    pageSize: Int
+    query: String
+  ): TemplateList
+
+  "Get embedded signing URL"
+  embeddedSignUrl(signatureId: ID!): EmbeddedURL
+
+  "Get embedded requesting URL"
+  embeddedRequestUrl(signatureRequestId: ID!): EmbeddedURL
+
+  "Get embedded template editing URL"
+  embeddedTemplateEditUrl(templateId: ID!): EmbeddedURL
+
+  "Get the authenticated account"
+  account: Account
+
+  "Get the team for the authenticated account"
+  team: Team
+
+  "Get information about an API app"
+  apiApp(clientId: ID!): App
+
+  "List API apps for the account"
+  apiApps(page: Int, pageSize: Int): AppList
+
+  "Get details of a bulk send job"
+  bulkSendJob(bulkSendJobId: ID!): BulkSendJobDetails
+
+  "List bulk send jobs for the account"
+  bulkSendJobs(page: Int, pageSize: Int): BulkSendJobList
+
+  "Get a user's details"
+  user(accountId: ID, emailAddress: String): User
+}
+
+# ─── Root Mutation Type ──────────────────────────────────────────────────────
+
+type Mutation {
+  "Send a new signature request"
+  createSignatureRequest(
+    testMode: Boolean
+    title: String
+    subject: String
+    message: String
+    signers: [String!]!
+    ccEmailAddresses: [String!]
+    useTextTags: Boolean
+    usePreexistingFields: Boolean
+    allowDecline: Boolean
+    allowReassign: Boolean
+    expiresAt: Int
+  ): SignatureRequest
+
+  "Send a signature request from a template"
+  createSignatureRequestFromTemplate(
+    templateIds: [ID!]!
+    title: String
+    subject: String
+    message: String
+    signers: [String!]!
+    ccs: [String!]
+    customFields: [String!]
+    metadata: String
+    expiresAt: Int
+    testMode: Boolean
+  ): SignatureRequest
+
+  "Cancel a signature request"
+  cancelSignatureRequest(signatureRequestId: ID!): Boolean
+
+  "Remind signers to sign a signature request"
+  remindSignatureRequest(
+    signatureRequestId: ID!
+    emailAddress: String!
+    name: String
+  ): SignatureRequest
+
+  "Create a template"
+  createTemplate(
+    title: String!
+    subject: String
+    message: String
+    signerRoles: [String!]!
+    ccRoles: [String!]
+    usePreexistingFields: Boolean
+    testMode: Boolean
+  ): Template
+
+  "Update a template"
+  updateTemplate(
+    templateId: ID!
+    clientId: String
+  ): Template
+
+  "Delete a template"
+  deleteTemplate(templateId: ID!): Boolean
+
+  "Add a user to a template"
+  addUserToTemplate(
+    templateId: ID!
+    accountId: ID
+    emailAddress: String
+  ): Template
+
+  "Remove a user from a template"
+  removeUserFromTemplate(
+    templateId: ID!
+    accountId: ID
+    emailAddress: String
+  ): Template
+
+  "Create an unclaimed draft"
+  createUnclaimedDraft(
+    type: UnclaimedDraftType!
+    testMode: Boolean
+    subject: String
+    message: String
+    signers: [String!]
+    ccEmailAddresses: [String!]
+    expiresAt: Int
+  ): UnclaimedDraft
+
+  "Create an embedded signature request"
+  createEmbeddedSignatureRequest(
+    clientId: ID!
+    testMode: Boolean
+    title: String
+    subject: String
+    message: String
+    signers: [String!]!
+    ccEmailAddresses: [String!]
+    allowDecline: Boolean
+  ): SignatureRequest
+
+  "Create an embedded signature request with a template"
+  createEmbeddedSignatureRequestWithTemplate(
+    clientId: ID!
+    templateIds: [ID!]!
+    title: String
+    subject: String
+    message: String
+    signers: [String!]!
+    ccs: [String!]
+    customFields: [String!]
+    testMode: Boolean
+  ): SignatureRequest
+
+  "Update account information"
+  updateAccount(callbackUrl: String, locale: String): Account
+
+  "Create a new team"
+  createTeam(name: String!): Team
+
+  "Update team information"
+  updateTeam(name: String!): Team
+
+  "Destroy the team"
+  destroyTeam: Boolean
+
+  "Add a member to the team"
+  addUserToTeam(
+    accountId: ID
+    emailAddress: String
+    role: String
+  ): Team
+
+  "Remove a member from the team"
+  removeUserFromTeam(
+    accountId: ID
+    emailAddress: String
+  ): Team
+
+  "Create an API app"
+  createApiApp(
+    name: String!
+    domain: String!
+    callbackUrl: String
+    customLogoFile: String
+    oauth: String
+    options: String
+    whiteLabelingOptions: String
+  ): App
+
+  "Update an API app"
+  updateApiApp(
+    clientId: ID!
+    name: String
+    domain: String
+    callbackUrl: String
+    customLogoFile: String
+    oauth: String
+    options: String
+    whiteLabelingOptions: String
+  ): App
+
+  "Delete an API app"
+  deleteApiApp(clientId: ID!): Boolean
+
+  "Send a bulk signature request using a template"
+  createBulkSendJobWithTemplate(
+    templateIds: [ID!]!
+    signerList: [String!]!
+    subject: String
+    message: String
+    metadata: String
+    testMode: Boolean
+  ): BulkSendJobDetails
+}
