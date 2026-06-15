@@ -1,0 +1,264 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dropbox Sign API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new account on Dropbox Sign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/account/create"
+          },
+          "docs": "Create a new account on Dropbox Sign"
+        },
+        {
+          "info": {
+            "name": "Get the authenticated account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/account"
+          },
+          "docs": "Get the authenticated account"
+        },
+        {
+          "info": {
+            "name": "Update the authenticated account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.hellosign.com/v3/account"
+          },
+          "docs": "Update the authenticated account"
+        },
+        {
+          "info": {
+            "name": "Verify whether an email belongs to an existing account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/account/verify"
+          },
+          "docs": "Verify whether an email belongs to an existing account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "API App",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an API app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/api_app"
+          },
+          "docs": "Create an API app"
+        },
+        {
+          "info": {
+            "name": "Get an API app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/api_app/:client_id",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an API app"
+        },
+        {
+          "info": {
+            "name": "Update an API app",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.hellosign.com/v3/api_app/:client_id",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update an API app"
+        },
+        {
+          "info": {
+            "name": "Delete an API app",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.hellosign.com/v3/api_app/:client_id",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an API app"
+        },
+        {
+          "info": {
+            "name": "List API apps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/api_app/list"
+          },
+          "docs": "List API apps"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Send Job",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a bulk send job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/bulk_send_job/:bulk_send_job_id",
+            "params": [
+              {
+                "name": "bulk_send_job_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a bulk send job"
+        },
+        {
+          "info": {
+            "name": "List bulk send jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/bulk_send_job/list"
+          },
+          "docs": "List bulk send jobs"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Embedded",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an embedded template edit URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/embedded/edit_url/:template_id",
+            "params": [
+              {
+                "name": "template_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an embedded template edit URL"
+        },
+        {
+          "info": {
+            "name": "Get an embedded signing URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/embedded/sign_url/:signature_id",
+            "params": [
+              {
+                "name": "signature_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an embedded signing URL"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fax",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a fax",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/fax/send"
+          },
+          "docs": "Send a fax"
+        },
+        {
+          "info": {
+            "name": "List sent and received faxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/fax/list"
+          },
+          "docs": "List sent and received faxes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
