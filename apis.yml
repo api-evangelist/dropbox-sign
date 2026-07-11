@@ -74,6 +74,8 @@ apis:
   - type: AsyncAPI
     url: https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/asyncapi/dropbox-sign-events-asyncapi.yml
 common:
+- type: OAuthScopes
+  url: scopes/dropbox-sign-scopes.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/dropboxsign
 - type: Website
@@ -90,6 +92,8 @@ common:
   url: https://github.com/hellosign
 - type: LlmsText
   url: https://developers.hellosign.com/llms.txt
+- type: Blog
+  url: https://sign.dropbox.com/blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

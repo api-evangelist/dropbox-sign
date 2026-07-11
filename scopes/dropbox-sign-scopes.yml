@@ -1,0 +1,41 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/dropbox-sign-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/dropbox-sign-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.hellosign.com/oauth/authorize
+    tokenUrl: https://app.hellosign.com/oauth/token
+scopes:
+- scope: account_access
+  description: Manage account
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/dropbox-sign-openapi.yml
+- scope: api_app_access
+  description: Manage API apps
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/dropbox-sign-openapi.yml
+- scope: basic_account_info
+  description: View basic account info
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/dropbox-sign-openapi.yml
+- scope: signature_request_access
+  description: Manage signature requests
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/dropbox-sign-openapi.yml
+- scope: template_access
+  description: Manage templates
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/dropbox-sign-openapi.yml
