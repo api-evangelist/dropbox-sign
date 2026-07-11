@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/dropbox-sign-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: apiKey
+  type: http
+  scheme: basic
+  description: Dropbox Sign API key used as Basic auth username with empty password
+  sources:
+  - openapi/dropbox-sign-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.hellosign.com/oauth/authorize
+    tokenUrl: https://app.hellosign.com/oauth/token
+    scopes: 5
+  sources:
+  - openapi/dropbox-sign-openapi.yml
