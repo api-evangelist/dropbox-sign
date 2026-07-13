@@ -1,0 +1,21 @@
+{
+  "repo": "dropbox-sign",
+  "feeds": [
+    {
+      "source": "https://sign.dropbox.com/blog",
+      "feed_url": "https://sign.dropbox.com/blog/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://developers.hellosign.com/llms.txt",
+      "feed_url": "https://developers.hellosign.com/llms.txt",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 35
+}
