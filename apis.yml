@@ -74,6 +74,8 @@ apis:
   - type: AsyncAPI
     url: https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/asyncapi/dropbox-sign-events-asyncapi.yml
 common:
+- type: AgenticAccess
+  url: agentic-access/dropbox-sign-agentic-access.yml
 - type: TrustCenter
   url: security/dropbox-sign-trust-center.yml
 - type: DomainSecurity
