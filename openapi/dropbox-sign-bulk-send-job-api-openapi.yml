@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: Dropbox Sign Account Bulk Send Job API
+  version: 3.0.0
+  description: Best-effort OpenAPI for the Dropbox Sign (formerly HelloSign) v3 eSignature API covering accounts, API apps, bulk send jobs, embedded edit / sign URLs, and fax operations. Authoritative spec lives at https://github.com/hellosign/hellosign-openapi.
+  contact:
+    name: API Evangelist
+    email: kin@apievangelist.com
+    url: https://developers.hellosign.com/api/api-reference-welcome
+servers:
+- url: https://api.hellosign.com/v3
+  description: Dropbox Sign v3 API
+security:
+- apiKey: []
+- oauth2: []
+tags:
+- name: Bulk Send Job
+paths:
+  /bulk_send_job/{bulk_send_job_id}:
+    parameters:
+    - name: bulk_send_job_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Bulk Send Job
+      summary: Get a bulk send job
+      operationId: getBulkSendJob
+      responses:
+        '200':
+          description: Bulk send job
+  /bulk_send_job/list:
+    get:
+      tags:
+      - Bulk Send Job
+      summary: List bulk send jobs
+      operationId: listBulkSendJobs
+      responses:
+        '200':
+          description: A page of bulk send jobs
+components:
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: Dropbox Sign API key used as Basic auth username with empty password
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.hellosign.com/oauth/authorize
+          tokenUrl: https://app.hellosign.com/oauth/token
+          scopes:
+            basic_account_info: View basic account info
+            account_access: Manage account
+            signature_request_access: Manage signature requests
+            template_access: Manage templates
+            api_app_access: Manage API apps

@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Dropbox Sign Account API App API
+  version: 3.0.0
+  description: Best-effort OpenAPI for the Dropbox Sign (formerly HelloSign) v3 eSignature API covering accounts, API apps, bulk send jobs, embedded edit / sign URLs, and fax operations. Authoritative spec lives at https://github.com/hellosign/hellosign-openapi.
+  contact:
+    name: API Evangelist
+    email: kin@apievangelist.com
+    url: https://developers.hellosign.com/api/api-reference-welcome
+servers:
+- url: https://api.hellosign.com/v3
+  description: Dropbox Sign v3 API
+security:
+- apiKey: []
+- oauth2: []
+tags:
+- name: API App
+paths:
+  /api_app:
+    post:
+      tags:
+      - API App
+      summary: Create an API app
+      operationId: createApiApp
+      responses:
+        '200':
+          description: API app created
+  /api_app/{client_id}:
+    parameters:
+    - $ref: '#/components/parameters/ClientId'
+    get:
+      tags:
+      - API App
+      summary: Get an API app
+      operationId: getApiApp
+      responses:
+        '200':
+          description: API app
+    put:
+      tags:
+      - API App
+      summary: Update an API app
+      operationId: updateApiApp
+      responses:
+        '200':
+          description: API app updated
+    delete:
+      tags:
+      - API App
+      summary: Delete an API app
+      operationId: deleteApiApp
+      responses:
+        '204':
+          description: API app deleted
+  /api_app/list:
+    get:
+      tags:
+      - API App
+      summary: List API apps
+      operationId: listApiApps
+      responses:
+        '200':
+          description: A page of API apps
+components:
+  parameters:
+    ClientId:
+      name: client_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    apiKey:
+      type: http
+      scheme: basic
+      description: Dropbox Sign API key used as Basic auth username with empty password
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://app.hellosign.com/oauth/authorize
+          tokenUrl: https://app.hellosign.com/oauth/token
+          scopes:
+            basic_account_info: View basic account info
+            account_access: Manage account
+            signature_request_access: Manage signature requests
+            template_access: Manage templates
+            api_app_access: Manage API apps
