@@ -1,0 +1,22 @@
+{
+  "provider": "dropbox-sign",
+  "sources": [
+    "dropbox-sign-account-api-openapi.yml",
+    "dropbox-sign-api-app-api-openapi.yml",
+    "dropbox-sign-bulk-send-job-api-openapi.yml",
+    "dropbox-sign-embedded-api-openapi.yml",
+    "dropbox-sign-fax-api-openapi.yml"
+  ],
+  "outputs": [
+    "dropbox-sign-account-api-openapi.yml",
+    "dropbox-sign-api-app-api-openapi.yml",
+    "dropbox-sign-bulk-send-job-api-openapi.yml",
+    "dropbox-sign-embedded-api-openapi.yml",
+    "dropbox-sign-fax-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
