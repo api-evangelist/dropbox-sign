@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dropbox Sign Account API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a new account on Dropbox Sign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/account/create"
+          },
+          "docs": "Create a new account on Dropbox Sign"
+        },
+        {
+          "info": {
+            "name": "Get the authenticated account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/account"
+          },
+          "docs": "Get the authenticated account"
+        },
+        {
+          "info": {
+            "name": "Update the authenticated account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.hellosign.com/v3/account"
+          },
+          "docs": "Update the authenticated account"
+        },
+        {
+          "info": {
+            "name": "Verify whether an email belongs to an existing account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/account/verify"
+          },
+          "docs": "Verify whether an email belongs to an existing account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dropbox Sign Account Fax API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fax",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send a fax",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/fax/send"
+          },
+          "docs": "Send a fax"
+        },
+        {
+          "info": {
+            "name": "List sent and received faxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/fax/list"
+          },
+          "docs": "List sent and received faxes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dropbox Sign Account Embedded API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Embedded",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an embedded template edit URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.hellosign.com/v3/embedded/edit_url/:template_id",
+            "params": [
+              {
+                "name": "template_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an embedded template edit URL"
+        },
+        {
+          "info": {
+            "name": "Get an embedded signing URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/embedded/sign_url/:signature_id",
+            "params": [
+              {
+                "name": "signature_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an embedded signing URL"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

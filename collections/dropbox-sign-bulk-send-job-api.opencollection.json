@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Dropbox Sign Account Bulk Send Job API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Send Job",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a bulk send job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/bulk_send_job/:bulk_send_job_id",
+            "params": [
+              {
+                "name": "bulk_send_job_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a bulk send job"
+        },
+        {
+          "info": {
+            "name": "List bulk send jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.hellosign.com/v3/bulk_send_job/list"
+          },
+          "docs": "List bulk send jobs"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
