@@ -34,7 +34,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dropbox-sign.png
 tags:
-- eSignature
+- E-Signature
 - Electronic Signature
 - Document Signing
 - Workflow-Automation
@@ -61,7 +61,7 @@ apis:
     `event_time + event_type` keyed by the receiving account's API key.
   humanURL: https://developers.hellosign.com/docs/events/overview/
   tags:
-  - eSignature
+  - E-Signature
   - Webhook
   - Event
   - Callbacks
