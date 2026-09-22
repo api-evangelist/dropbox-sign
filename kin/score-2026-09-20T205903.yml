@@ -1,31 +1,29 @@
-# Kin Score artifact — dropbox-sign — 2026-08-21T110057
+# Kin Score artifact — dropbox-sign — 2026-09-20T205903
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: dropbox-sign
-  schema_version: 0.12.0
-  scored_at: '2026-08-21'
-  run_ts: 2026-08-21T110057
-  composite: 35.5
+  schema_version: 0.22.0
+  scored_at: '2026-09-20'
+  run_ts: 2026-09-20T205903
+  composite: 33.7
   band: thin
   facets:
-    discoverability: 72.2
-    contract_quality: 64.5
-    governance: 11.4
+    discoverability: 66.7
+    contract_quality: 62.5
+    contract_governance: 11.4
     operational_transparency: 2.6
     developer_ergonomics: 31.0
-    commercial_clarity: 21.1
-    contract_governance: 11.4
     access_clarity: 21.1
   agent_readiness:
-    score: 27.4
+    score: 23.4
     band: agent-aware
     dimensions:
       spec_presence: true
       agentic_access: derived
       reversibility_documented: false
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: negotiable
       idempotency: false
       error_semantics: false
       openapi_examples: false
@@ -36,6 +34,10 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: documented
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   provenance:
     agentic_access: derived
     contracts:
