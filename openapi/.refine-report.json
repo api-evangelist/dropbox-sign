@@ -1,15 +1,11 @@
 {
   "provider": "dropbox-sign",
   "sources": [
-    "dropbox-sign-account-api-openapi.yml",
-    "dropbox-sign-api-app-api-openapi.yml",
-    "dropbox-sign-bulk-send-job-api-openapi.yml",
-    "dropbox-sign-embedded-api-openapi.yml",
-    "dropbox-sign-fax-api-openapi.yml"
+    "_original/dropbox-sign-openapi.yml"
   ],
   "outputs": [
-    "dropbox-sign-account-api-openapi.yml",
     "dropbox-sign-api-app-api-openapi.yml",
+    "dropbox-sign-account-api-openapi.yml",
     "dropbox-sign-bulk-send-job-api-openapi.yml",
     "dropbox-sign-embedded-api-openapi.yml",
     "dropbox-sign-fax-api-openapi.yml"
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dropbox-sign-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "dropbox-sign-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dropbox-sign-api-app-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dropbox-sign-bulk-send-job-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dropbox-sign-embedded-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "dropbox-sign-fax-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
