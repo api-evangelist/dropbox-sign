@@ -37,7 +37,7 @@ tags:
 - E-Signature
 - Electronic Signature
 - Document Signing
-- Workflow-Automation
+- Workflow Automation
 - Documents
 tags_raw:
 - eSignature
@@ -45,6 +45,7 @@ tags_raw:
 - Document Signing
 - Workflow Automation
 - Documents
+- Workflow-Automation
 url: https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/apis.yml
 created: '2026-05-11'
 modified: '2026-05-30'
@@ -100,8 +101,6 @@ apis:
     url: https://github.com/hellosign/hellosign-openapi
   - type: GettingStarted
     url: https://developers.hellosign.com/api/reference
-  - type: GraphQL
-    url: graphql/dropbox-sign-graphql.md
 - aid: dropbox-sign:dropbox-sign-api-app-api
   name: Dropbox Sign API App API
   description: The API App API from Dropbox Sign — 3 operation(s) for api app.
@@ -118,8 +117,6 @@ apis:
     url: https://github.com/hellosign/hellosign-openapi
   - type: GettingStarted
     url: https://developers.hellosign.com/api/reference
-  - type: GraphQL
-    url: graphql/dropbox-sign-graphql.md
 - aid: dropbox-sign:dropbox-sign-bulk-send-job-api
   name: Dropbox Sign Bulk Send Job API
   description: The Bulk Send Job API from Dropbox Sign — 2 operation(s) for bulk send job.
@@ -136,8 +133,6 @@ apis:
     url: https://github.com/hellosign/hellosign-openapi
   - type: GettingStarted
     url: https://developers.hellosign.com/api/reference
-  - type: GraphQL
-    url: graphql/dropbox-sign-graphql.md
 - aid: dropbox-sign:dropbox-sign-embedded-api
   name: Dropbox Sign Embedded API
   description: The Embedded API from Dropbox Sign — 2 operation(s) for embedded.
@@ -154,8 +149,6 @@ apis:
     url: https://github.com/hellosign/hellosign-openapi
   - type: GettingStarted
     url: https://developers.hellosign.com/api/reference
-  - type: GraphQL
-    url: graphql/dropbox-sign-graphql.md
 - aid: dropbox-sign:dropbox-sign-fax-api
   name: Dropbox Sign Fax API
   description: The Fax API from Dropbox Sign — 2 operation(s) for fax.
@@ -172,8 +165,6 @@ apis:
     url: https://github.com/hellosign/hellosign-openapi
   - type: GettingStarted
     url: https://developers.hellosign.com/api/reference
-  - type: GraphQL
-    url: graphql/dropbox-sign-graphql.md
 common:
 - type: AgenticAccess
   url: agentic-access/dropbox-sign-agentic-access.yml
