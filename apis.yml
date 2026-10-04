@@ -169,6 +169,9 @@ apis:
   - type: GettingStarted
     url: https://developers.hellosign.com/api/reference
 common:
+- type: CapabilityMap
+  url: capabilities/dropbox-sign-capability-edges.yml
+  name: Dropbox Sign Business Capability Map
 - type: AgenticAccess
   url: agentic-access/dropbox-sign-agentic-access.yml
 - type: TrustCenter
