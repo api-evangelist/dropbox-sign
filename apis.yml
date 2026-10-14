@@ -1,205 +1,26 @@
 aid: dropbox-sign
 name: Dropbox Sign
-description: Dropbox Sign (formerly HelloSign) is an eSignature platform that lets
-  developers and businesses embed legally binding electronic signature workflows into
-  their applications and websites. The product supports embedded signing and requesting,
-  reusable templates, custom signer fields, branded signing flows, audit trails, and
-  tamper-proof document delivery. The Dropbox Sign API is documented with an official
-  OpenAPI specification and authenticated via HTTP Basic Auth with an API key or OAuth
-  2.0 Bearer tokens.
+description: 'Dropbox Sign (formerly HelloSign). This is a duplicate profile: Dropbox Sign is profiled in the hellosign
+  repository, which is canonical (richer: 13 API entries, 73 operations and the full artifact set). Consolidated
+  2026-10-14, approved by Kin Lane.'
 type: Index
-deliveryModel:
-  model: saas
-  open_source: false
-  commercial: true
-  callable_host: true
-  label: Hosted service · you call their endpoint
-  confidence: high
-  source:
-  - openapi
-  - pricing
-  generated: '2026-08-28'
-  method: derived
-accessModel:
-  pricing: unknown
-  onboarding: self-serve
-  trial: false
-  try_now: false
-  public: false
-  label: Self-serve signup
-  confidence: medium
-  source:
-  - authentication
-  generated: '2026-07-22'
-  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dropbox-sign.png
-x-docs-platform: fern
-x-docs-platform-confidence: medium
-x-docs-platform-checked: 2026-09-25
 tags:
 - E-Signature
-- Electronic Signature
-- Document Signing
-- Workflow Automation
-- Documents
-tags_raw:
-- eSignature
-- Electronic Signature
-- Document Signing
-- Workflow Automation
-- Documents
-- Workflow-Automation
 url: https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-30'
+modified: '2026-10-14'
 specificationVersion: '0.23'
-apis:
-- aid: dropbox-sign:events-api
-  name: Dropbox Sign Events and Callbacks API
-  description: >-
-    Outbound event / callback surface for Dropbox Sign. The platform POSTs JSON event payloads (wrapped
-    in a `multipart/form-data` `json` field) to a subscriber-configured URL whenever signature requests,
-    templates, and account-level activity change state. Two callback scopes are supported: account callbacks
-    (configured on the authenticated account) and app callbacks (configured per API app and routed by
-    `client_id`). Authenticity is verified via the `event.event_hash` field, computed as HMAC-SHA256 of
-    `event_time + event_type` keyed by the receiving account's API key.
-  humanURL: https://developers.hellosign.com/docs/events/overview/
-  tags:
-  - E-Signature
-  - Webhook
-  - Event
-  - Callbacks
-  - Event-Driven
-  tags_raw:
-  - eSignature
-  - Webhooks
-  - Events
-  - Callbacks
-  - Event-Driven
-  properties:
-  - type: Documentation
-    url: https://developers.hellosign.com/docs/events/overview/
-  - type: Walkthrough
-    url: https://developers.hellosign.com/docs/events/walkthrough/
-  - type: AccountCallbacks
-    url: https://developers.hellosign.com/api/reference/operation/accountUpdateEventCallback/
-  - type: AppCallbacks
-    url: https://developers.hellosign.com/api/reference/operation/apiAppCreateEventCallback/
-  - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/dropbox-sign/refs/heads/main/asyncapi/dropbox-sign-events-asyncapi.yml
-- aid: dropbox-sign:dropbox-sign-account-api
-  name: Dropbox Sign Account API
-  description: The Account API from Dropbox Sign — 3 operation(s) for account.
-  humanURL: https://developers.hellosign.com/api/api-reference-welcome
-  baseURL: https://api.hellosign.com/v3
-  tags:
-  - Account
-  properties:
-  - type: OpenAPI
-    url: openapi/dropbox-sign-account-api-openapi.yml
-  - type: Documentation
-    url: https://developers.hellosign.com/api/api-reference-welcome
-  - type: GitHub OpenAPI Repo
-    url: https://github.com/hellosign/hellosign-openapi
-  - type: GettingStarted
-    url: https://developers.hellosign.com/api/reference
-- aid: dropbox-sign:dropbox-sign-api-app-api
-  name: Dropbox Sign API App API
-  description: The API App API from Dropbox Sign — 3 operation(s) for api app.
-  humanURL: https://developers.hellosign.com/api/api-reference-welcome
-  baseURL: https://api.hellosign.com/v3
-  tags:
-  - API App
-  properties:
-  - type: OpenAPI
-    url: openapi/dropbox-sign-api-app-api-openapi.yml
-  - type: Documentation
-    url: https://developers.hellosign.com/api/api-reference-welcome
-  - type: GitHub OpenAPI Repo
-    url: https://github.com/hellosign/hellosign-openapi
-  - type: GettingStarted
-    url: https://developers.hellosign.com/api/reference
-- aid: dropbox-sign:dropbox-sign-bulk-send-job-api
-  name: Dropbox Sign Bulk Send Job API
-  description: The Bulk Send Job API from Dropbox Sign — 2 operation(s) for bulk send job.
-  humanURL: https://developers.hellosign.com/api/api-reference-welcome
-  baseURL: https://api.hellosign.com/v3
-  tags:
-  - Bulk Send Job
-  properties:
-  - type: OpenAPI
-    url: openapi/dropbox-sign-bulk-send-job-api-openapi.yml
-  - type: Documentation
-    url: https://developers.hellosign.com/api/api-reference-welcome
-  - type: GitHub OpenAPI Repo
-    url: https://github.com/hellosign/hellosign-openapi
-  - type: GettingStarted
-    url: https://developers.hellosign.com/api/reference
-- aid: dropbox-sign:dropbox-sign-embedded-api
-  name: Dropbox Sign Embedded API
-  description: The Embedded API from Dropbox Sign — 2 operation(s) for embedded.
-  humanURL: https://developers.hellosign.com/api/api-reference-welcome
-  baseURL: https://api.hellosign.com/v3
-  tags:
-  - Embedded
-  properties:
-  - type: OpenAPI
-    url: openapi/dropbox-sign-embedded-api-openapi.yml
-  - type: Documentation
-    url: https://developers.hellosign.com/api/api-reference-welcome
-  - type: GitHub OpenAPI Repo
-    url: https://github.com/hellosign/hellosign-openapi
-  - type: GettingStarted
-    url: https://developers.hellosign.com/api/reference
-- aid: dropbox-sign:dropbox-sign-fax-api
-  name: Dropbox Sign Fax API
-  description: The Fax API from Dropbox Sign — 2 operation(s) for fax.
-  humanURL: https://developers.hellosign.com/api/api-reference-welcome
-  baseURL: https://api.hellosign.com/v3
-  tags:
-  - Fax
-  properties:
-  - type: OpenAPI
-    url: openapi/dropbox-sign-fax-api-openapi.yml
-  - type: Documentation
-    url: https://developers.hellosign.com/api/api-reference-welcome
-  - type: GitHub OpenAPI Repo
-    url: https://github.com/hellosign/hellosign-openapi
-  - type: GettingStarted
-    url: https://developers.hellosign.com/api/reference
-common:
-- type: CapabilityMap
-  url: capabilities/dropbox-sign-capability-edges.yml
-  name: Dropbox Sign Business Capability Map
-- type: AgenticAccess
-  url: agentic-access/dropbox-sign-agentic-access.yml
-- type: TrustCenter
-  url: security/dropbox-sign-trust-center.yml
-- type: DomainSecurity
-  url: security/dropbox-sign-domain-security.yml
-- type: Authentication
-  url: authentication/dropbox-sign-authentication.yml
-- type: OAuthScopes
-  url: scopes/dropbox-sign-scopes.yml
-- type: LinkedIn
-  url: https://www.linkedin.com/company/dropboxsign
-- type: Website
-  url: https://sign.dropbox.com
-- type: Documentation
-  url: https://developers.hellosign.com
-- type: API Documentation
-  url: https://developers.hellosign.com/api/api-reference-welcome
-- type: Pricing
-  url: https://sign.dropbox.com/pricing
-- type: Signup
-  url: https://sign.dropbox.com/signup
-- type: GitHubOrganization
-  url: https://github.com/hellosign
-- type: LlmsText
-  url: https://developers.hellosign.com/llms.txt
-- type: Blog
-  url: https://sign.dropbox.com/blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+common:
+- type: ParentCompany
+  url: https://apis.io/providers/hellosign/
+  name: Dropbox Sign (hellosign)
+- type: Documentation
+  url: https://developers.hellosign.com
+apis: []
+x-parent: hellosign
+x-relationship: duplicate
+x-consolidated-into: hellosign
