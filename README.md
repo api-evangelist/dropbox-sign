@@ -1,4 +1,4 @@
-# Dropbox Sign
+# dropbox-sign
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,6 +64,35 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-This profile has been **merged into [hellosign](https://apis.io/providers/hellosign/)** — the two records described the same company, and that one is canonical.
+> **Retired — merged into [Dropbox Sign (HelloSign)](https://apis.io/providers/hellosign/).** The two records described the same company, and that one is canonical. Nothing in this repository is maintained any more.
 
-Nothing here is maintained any more. The company's current profile, rating and artifacts are at [apis.io/providers/hellosign/](https://apis.io/providers/hellosign/).
+**Why:** Duplicate of hellosign (same product: Dropbox Sign, formerly HelloSign; same API host api.hellosign.com). hellosign is canonical: 13 API entries and 73 operations against dropbox-sign's 6 entries and 15 operations, every one of which hellosign already had. Unique content moved into hellosign with x-moved-from: the events/callbacks AsyncAPI (2 channels; hellosign's own had none), 83 blog posts and the blog feed state, and the LinkedIn, Blog and llms.txt pointers. dropbox-sign stays live as a pointer profile with no APIs and no Website; three Zapier edges that named it (deputy, samcart, trainerize) now point at hellosign. Pages map 1:1 to the hellosign equivalent where one exists, otherwise to the provider page. Approved by Kin Lane (standing duplicate authorization), 2026-10-14.
+
+**Retired:** 2026-10-14
+
+## Where to go now
+
+The current profile, APIs, artifacts and rating for Dropbox Sign (HelloSign) are on APIs.io at **[apis.io/providers/hellosign/](https://apis.io/providers/hellosign/)**.
+
+Pages that used to belong to this profile now live at:
+
+- [Hellosign Agentic Access](https://apis.io/agentic-access/hellosign/hellosign-agentic-access/)
+- [Hellosign Account API](https://apis.io/apis/hellosign/hellosign-account-api/)
+- [Hellosign API App API](https://apis.io/apis/hellosign/hellosign-api-app-api/)
+- [Hellosign Bulk Send Job API](https://apis.io/apis/hellosign/hellosign-bulk-send-job-api/)
+- [Hellosign Embedded API](https://apis.io/apis/hellosign/hellosign-embedded-api/)
+- [Hellosign Fax API](https://apis.io/apis/hellosign/hellosign-fax-api/)
+- [Hellosign Callbacks And Events API](https://apis.io/apis/hellosign/hellosign-callbacks-and-events-api/)
+- [Open Hellosign Account API](https://apis.io/collections/hellosign/open-hellosign-account-api/)
+- [Open Hellosign API App API](https://apis.io/collections/hellosign/open-hellosign-api-app-api/)
+- [Open Hellosign Bulk Send Job API](https://apis.io/collections/hellosign/open-hellosign-bulk-send-job-api/)
+- [Open Hellosign Embedded API](https://apis.io/collections/hellosign/open-hellosign-embedded-api/)
+- [Open Hellosign Fax API](https://apis.io/collections/hellosign/open-hellosign-fax-api/)
+- [Hellosign Scopes](https://apis.io/scopes/hellosign/hellosign-scopes/)
+- [Hellosign Authentication](https://apis.io/security/hellosign/hellosign-authentication/)
+- [Hellosign Domain Security](https://apis.io/security/hellosign/hellosign-domain-security/)
+- [Hellosign Trust Center](https://apis.io/security/hellosign/hellosign-trust-center/)
+
+## Open an issue
+
+Issues about Dropbox Sign (HelloSign) belong on the canonical profile: [open one on api-evangelist/hellosign](https://github.com/api-evangelist/hellosign/issues/new). If you think this merge was a mistake — these were really two companies — say so there or email [info@apievangelist.com](mailto:info@apievangelist.com).
